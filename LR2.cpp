@@ -7,17 +7,17 @@ private:
     std::vector<double> data;
     int size;
 public:
-    Vector(int size) :size(size) {
-        data.resize(size);
+    Vector(int size1) :size(size1) {
+        data.resize(size1);
     }
     ~Vector() {}
     void fillVector() {
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size1; i++) {
             std::cin >> data[i];
         }
     }
     void printVector() {
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size1; i++) {
             std::cout << data[i] << " ";
         }
     }
@@ -27,35 +27,35 @@ public:
     }
     double calculateNorm() const {
         double sum = 0.0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size1; i++) {
             sum += data[i] * data[i];
         }
         return std::sqrt(sum);
     }
     Vector add(const Vector& other) {
-        Vector result(size);
-        for (int i = 0; i < size; i++) {
+        Vector result(size1);
+        for (int i = 0; i < size1; i++) {
             result.data[i] = data[i] + other.data[i];
         }
         return result;
     }
     Vector subtract(const Vector& other) {
-        Vector result(size);
-        for (int i = 0; i < size; i++) {
+        Vector result(size1);
+        for (int i = 0; i < size1; i++) {
             result.data[i] = data[i] - other.data[i];
         }
         return result;
     }
     double scalarProduct(const Vector& other) {
         double result = 0;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size1; i++) {
             result += data[i] * other.data[i];
         }
         return result;
     }
     Vector multiplyByScalar(double scalar) {
-        Vector result(size);
-        for (int i = 0; i < size; i++) {
+        Vector result(size1);
+        for (int i = 0; i < size1; i++) {
             result.data[i] = data[i] * scalar;
         }
         return result;
@@ -71,10 +71,10 @@ public:
 
 int main() {
     setlocale(LC_ALL, "Eng");
-    int size;
-    std::cin >> size;
-    Vector vector1(size);
-    Vector vector2(size);
+    int size1;
+    std::cin >> size1;
+    Vector vector1(size1);
+    Vector vector2(size1);
     vector1.fillVector();
     vector2.fillVector();
     double scalar;
