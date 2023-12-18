@@ -15,9 +15,9 @@ void disp(const std::vector<double>& arr) {
 
 void add_element(std::vector<double>& arr, double &sum, double &avg) {
 
-  sum = accumulate(arr.begin(), arr.end(), 0.0);
-  avg = sum / arr.size();
-  arr.push_back(sum);
+  sum1 = accumulate(arr.begin(), arr.end(), 0.0);
+  avg = sum1 / arr.size();
+  arr.push_back(sum1);
   arr.push_back(avg);
 
 }
@@ -37,7 +37,7 @@ void rabotaSVektorom(std::vector<double>& arr, int n, double& avg) {
 
 }
 
-int menu(std::vector<double>& arr, int n, double &sum, double &avg) {
+int menu(std::vector<double>& arr, int n, double &sum1, double &avg) {
 
   int choice;
   while (true) {
@@ -51,7 +51,7 @@ int menu(std::vector<double>& arr, int n, double &sum, double &avg) {
       arr.push_back(elem);
       std::cout << "+: " << arr.size() << std::endl;
       disp(arr);
-      add_element(arr, sum, avg);
+      add_element(arr, sum1, avg);
       disp(arr);
       rabotaSVektorom(arr, n, avg);
       disp(arr);
@@ -61,7 +61,7 @@ int menu(std::vector<double>& arr, int n, double &sum, double &avg) {
         arr.pop_back();
         std::cout << "-: " << arr.size() << std::endl;
         disp(arr);
-        add_element(arr, sum, avg);
+        add_element(arr, sum1, avg);
         disp(arr);
         rabotaSVektorom(arr, n, avg);
         disp(arr);  
@@ -80,7 +80,7 @@ int menu(std::vector<double>& arr, int n, double &sum, double &avg) {
 int main() {
 
   setlocale(LC_ALL, "Russian");
-  double  sum = 0;
+  double  sum1 = 0;
   double avg = 0;
   int n;
   std::cin >> n;
@@ -92,11 +92,11 @@ int main() {
   std::cout << std::endl << n << std::endl;
 
   disp(arr);
-  add_element(arr, sum, avg);
+  add_element(arr, sum1, avg);
   disp(arr);
   rabotaSVektorom(arr, n, avg);
   disp(arr);
-  menu(arr, n, sum, avg);
+  menu(arr, n, sum1, avg);
   return 0;
 
 }
